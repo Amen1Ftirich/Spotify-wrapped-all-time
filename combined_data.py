@@ -1,6 +1,5 @@
 import pandas as pd
 import glob
-import pylance as pl
 
 allfiles = glob.glob('data/Streaming_History_Audio_*.json')
 df_allfiles = pd.concat((pd.read_json(f) for f in allfiles), ignore_index=True)
@@ -28,5 +27,8 @@ columns_to_drop = [
 
 ]
 totaldata = df_allfiles.drop(columns= columns_to_drop)
-ms_remove = totaldata[totaldata["ms_played"] = 0]
+def removing_minutes_numm(dataframe):
+    filteredminutes = dataframe[dataframe['ms_played']>0]
+    return filteredminutes
+totaldata = removing_minutes_numm(totaldata)
 print(totaldata)
