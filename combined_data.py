@@ -4,7 +4,6 @@ allfiles = glob.glob('data/Streaming_History_Audio_*.json')
 df_allfiles = pd.concat((pd.read_json(f) for f in allfiles), ignore_index=True)
 alldataframed = pd.DataFrame(df_allfiles)
 columns_to_drop = [
-    "ts",
     "platform",
     "conn_country",
     "ip_addr",
@@ -33,4 +32,5 @@ def removing_minutes_null(dataframe):
 
 totaldata = removing_minutes_null(totaldata)
 totaldata = totaldata.dropna(subset=["master_metadata_track_name"], ignore_index=True)
-print(totaldata)
+#print(totaldata)
+

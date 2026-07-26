@@ -16,4 +16,4 @@ top_10_tracks = (track_data.head(10).reset_index(name="play counts"))
 
 print(top_10_tracks)
 print(top_10_albums)
-#print(top_10_artists)
+print(top_10_artists)
